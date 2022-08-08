@@ -17,7 +17,7 @@ const PRIMARY_COLORS = ["red", "blue", "yellow"];
 const retrieve = async(options={}) => {
     const {page=1, colors=ALL_COLORS} = options;
     const offset = (page - 1) * 10;
-    const url = URI(window.path).addQuery({"colors[]": colors}).addQuery("offset", offset).addQuery("limit",10);
+    const url = URI(window.path).addQuery({"color[]": colors}).addQuery("offset", offset).addQuery("limit",10);
     try {
         const response = await fetch(url);
         const data = await response.json();
