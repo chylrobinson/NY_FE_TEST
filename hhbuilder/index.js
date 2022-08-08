@@ -44,16 +44,14 @@ submitButton.onclick = function(ev) {
         }
     }
 
+    debug.style.display='block';
+
     if (households.length == 0) {
-        debug.style.display='block';
         debug.textContent = "Please add household info";
     } else {
-        debug.style.display='block';
         debug.textContent = JSON.stringify(households);
+        households = [];
     }
-    // updateHouseholdList();
-    
-    households = [];
 }
 
 form.onsubmit = function(ev) {
