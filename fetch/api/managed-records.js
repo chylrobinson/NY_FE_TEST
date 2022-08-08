@@ -23,7 +23,7 @@ const retrieve = async(options={}) => {
         const data = await response.json();
         
         const previousPage = (page - 1 >= 1) ? page -1 : null;
-        const nextPage = (page + 1 <= 50) ? page + 1 : null;
+        const nextPage = (page + 1 <= 50 && data.length > 0) ? page + 1 : null;
         const ids = data.map(item => item.id);
         const open = data.filter(item => item.disposition === "open").map(item => ({...item, isPrimary: PRIMARY_COLORS.includes(item.color)}));
         const closedPrimaryCount = data.filter(item => item.disposition === "closed" && PRIMARY_COLORS.includes(item.color)).length;
